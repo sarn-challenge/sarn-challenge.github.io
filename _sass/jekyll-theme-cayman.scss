@@ -1,0 +1,567 @@
+@import "normalize";
+@import "rouge-github";
+@import "variables";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 0.733); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+@mixin xlarge {
+  @media screen and (min-width: #{$xlarge-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and (min-width: #{$large-breakpoint}) and (max-width: #{xlarge-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-image: url('/assets/images/briggman_volume.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $body-text-color;
+}
+
+#skip-to-content {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
+
+  &:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: auto;
+    width: auto;
+    background: invert($body-link-color);
+    outline: thick solid invert($body-link-color);
+  }
+}
+
+a {
+  color: $body-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.grid-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.card {
+  width: 30vw;
+  min-width: 320px;
+  height: 75vh;
+  min-height: 25rem;           
+  display: flex;                
+  flex-direction: column;       
+  border: 1px rgba(255, 255, 255, 0.03) solid;    
+  box-shadow: 0px 0px 10px rgba(97, 81, 67, 0.855);
+  border-radius: 4px;            
+  margin-top: 1rem;
+  background-color: #382f27;
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.card-header {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 5px 10px;
+  display: block;
+  width: 100%;
+  background-color: rgb(145, 0, 0);
+  border: 2px solid rgb(145, 100, 100);
+
+  @include xlarge {
+    font-size: 1.5em;
+    margin-bottom: 0.8rem;
+  }
+
+  @include small {
+    font-size: 1em;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.card-main {
+  display: flex;              
+  flex-direction: column;
+  justify-content: flex-start;  
+  align-items: center;
+  overflow: auto;        
+  padding: 15px 0;
+}
+
+.material-icons {
+  font-size: 36px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.main-description {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-right: 12px;
+  margin-left: 12px;
+
+  @include xlarge {
+    font-size: 1.2em;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  @include small {
+    font-size: 0.7em;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(100, 100, 100, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+  &.attached {
+    margin-bottom: 4px;
+    background-color: #382f27;
+    color: #fff;
+    border: 1px solid rgba(100, 100, 100, 0.2);
+  }
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: rgba(100, 100, 100, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &.attached:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: rgba(100, 100, 100, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  + .btn {
+    margin-left: 1rem;
+  }
+
+  @include xlarge {
+    padding: 1rem 1.2rem;
+  }
+
+  @include large {
+    padding: 0.75rem 1rem;
+  }
+
+  @include medium {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  @include small {
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+
+    + .btn {
+      margin-top: 1rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.page-header {
+  color: $header-heading-color;
+  text-align: center;
+  width: 98vw;
+  background-color: $header-bg-color;
+  height: 15vh;
+  margin-top: 1.8rem;
+  display: block;
+  border: 2px solid rgb(145, 100, 100);
+  border-radius: 4px;
+  //background-image: linear-gradient(180deg, $header-bg-color, $header-bg-color-secondary);
+}
+
+.project-name {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  @include xlarge {
+    font-size: 2rem;
+  }
+
+  @include large {
+    font-size: 1.75rem;
+  }
+
+  @include medium {
+    font-size: 1.25rem;
+  }
+
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+.project-tagline {
+  font-weight: normal;
+  opacity: 0.7;
+
+  @include xlarge {
+    font-size: 1.4rem;
+  }
+
+  @include large {
+    font-size: 1.25rem;
+  }
+
+  @include medium {
+    font-size: 1.15rem;
+  }
+
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+.main-content {
+  word-wrap: break-word;
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  @include xlarge {
+    max-width: 100%;
+    padding: 1rem 4rem;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+
+  @include large {
+    max-width: 80%;
+    padding: 1rem 4rem;
+    margin: 0 auto;
+    font-size: 1.2rem;
+  }
+
+  @include medium {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+  }
+
+  @include small {
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: $section-headings-color;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  code {
+    padding: 2px 4px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9rem;
+    color: $code-text-color;
+    background-color: transparent;
+    border-radius: 0.3rem;
+  }
+
+  pre {
+    padding: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: $code-text-color;
+    word-wrap: normal;
+    background-color: $code-bg-color;
+    border: solid 1px $border-color;
+    border-radius: 0.3rem;
+
+    > code {
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: $code-text-color;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  .highlight {
+    margin-bottom: 1rem;
+
+    pre {
+      margin-bottom: 0;
+      word-break: normal;
+    }
+  }
+
+  .highlight pre,
+  pre {
+    padding: 0.8rem;
+    overflow: auto;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    border-radius: 0.3rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre code,
+  pre tt {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+
+    &:before,
+    &:after {
+      content: normal;
+    }
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+  }
+
+  blockquote {
+    padding: 0 1rem;
+    margin-left: 0;
+    color: $blockquote-text-color;
+    border-left: 0.3rem solid $border-color;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  table {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all; // For Firefox to horizontally scroll wider tables.
+    -webkit-overflow-scrolling: touch;
+    margin-left: 12px;
+    margin-right: 12px;
+
+    th {
+      font-size: 0.7rem;
+      text-align: center;
+      font-weight: bold;
+      background-color: rgb(145, 150, 150);
+    }
+
+    td {
+      text-align: center;
+      font-size: 0.6rem;
+      background-color: rgb(187, 187, 187);
+    }
+
+    th,
+    td {
+      padding: 0.3rem 0.5rem;
+      border: 1px solid #fff;
+    }
+
+    @include xlarge {
+      th {
+        font-size: 1rem;
+      }
+
+      td {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    @include small {
+      th {
+        font-size: 0.6rem;
+      }
+
+      td {
+        font-size: 0.5rem;
+      }
+
+      th,
+      td {
+        padding: 0.15rem 0.3rem;
+      }
+    }
+  }
+
+  dl {
+    padding: 0;
+
+    dt {
+      padding: 0;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    dd {
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  hr {
+    height: 2px;
+    padding: 0;
+    margin: 1rem 0;
+    background-color: $hr-border-color;
+    border: 0;
+  }
+}
+
+.site-footer {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: solid 1px $hr-border-color;
+
+  @include xlarge {
+    font-size: 1.2rem;
+  }
+
+  @include large {
+    font-size: 1rem;
+  }
+
+  @include medium {
+    font-size: 1rem;
+  }
+
+  @include small {
+    font-size: 0.9rem;
+  }
+}
+
+.site-footer-owner {
+  display: block;
+  font-weight: bold;
+}
+
+.site-footer-credits {
+  font-size: 10px;
+  color: $blockquote-text-color;
+}
