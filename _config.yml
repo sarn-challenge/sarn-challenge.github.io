@@ -1,5 +1,5 @@
-title: CVPR 2019 Project Page (Paper Title)
-description: # Some good description that makes it easier for Google to index
+title: Source Agnostic Reconstruction of Neurons challenge
+description: Challenge for measuring the generalization capabilities of present Neural Network architectures
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-cayman
