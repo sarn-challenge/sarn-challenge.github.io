@@ -1,2 +1,2 @@
-# sarn-challenge.github.io
-Source Agnostic Reconstruction of Neurons challenge
+# starn-challenge.github.io
+Source and Tissue Agnostic Reconstruction of Neurons challenge
