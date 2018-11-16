@@ -28,10 +28,13 @@ layout: default
   <div class="card">
     <div class="card-header"> Leaderboard </div>
     <div class="card-main">
-      <div class="main-description"> Upload your <strong> neuron segmentation </strong> results on the test volume provided. We will evaluate them using the ground truth (GT) labels and update the leaderboard based on the mean Average Precision (mAP) values. </div>
+      <div class="main-description"> Upload your <strong> neuron segmentation </strong> results on the test volume provided. </div>
     </div>
     <div class="align-center">
-      <a href="#submission" class="btn align-center"> Upload Submission </a>
+      <!-- a href="#submission" class="btn align-center"> Submit Results </a -->
+      <div class="btn align-center"> Submit Results
+        <div class="tooltip"> Submissions disabled </div>
+      </div>
     </div>
     <!-- table>
         <tr>
