@@ -17,7 +17,7 @@ layout: default
     </div>
   </div>
   <div class="card">
-    <div class="card-header"> Data </div>
+    <div class="card-header"> Data & Code </div>
     <div class="card-main">
       <div class="main-description"> <strong> Training Data:</strong> The instructions for getting training volumes can be found at the following links: </div>
       <div class="grid-layout pad-some">
@@ -30,6 +30,12 @@ layout: default
         <a href="https://doi.org/10.5281/zenodo.1490123" class="btn align-center"> Test Volume </a>
       </div>
     </div>
+    <div class="align-center pad-some">
+      <!--a href="https://doi.org/10.5281/zenodo.1490123" class="btn align-center"> Test Volume </a-->
+      <div class="btn align-center"> Link to Code
+        <div class="tooltip"> Code coming soon! </div>
+      </div>
+    </div>
   </div>
   <div class="card">
     <div class="card-header"> Leaderboard </div>
@@ -39,7 +45,7 @@ layout: default
     <div class="align-center">
       <!-- a href="#submission" class="btn align-center"> Submit Results </a -->
       <div class="btn align-center"> Submit Results
-        <div class="tooltip"> Submissions disabled </div>
+        <div class="tooltip"> Submissions currently disabled. Check back soon for the challenge kickoff! </div>
       </div>
     </div>
     <!-- table>
